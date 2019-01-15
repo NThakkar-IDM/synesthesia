@@ -1,5 +1,5 @@
 # synesthesia
-Deep learning to predict music genre from raw audio via spectrogram image processing
+Deep learning to predict music genre from raw audio via spectrogram image processing.
 > This repository is for the ML/DL group meeting on 1/15/2019. 
 
 ## Installation
