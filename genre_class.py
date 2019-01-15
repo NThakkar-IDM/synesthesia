@@ -132,7 +132,9 @@ class GenreClassifier1D(nn.Module):
 def GetSpectrograms(df,entropy_loss=True):
 
 	""" Simple loop over spectrograms to create the input stack and return torch.tensor
-	classes of the inputs and outputs. """
+	classes of the inputs and outputs. 
+
+	The entropy_loss flag specifies the format of the outputs."""
 
 	## Loop over spectrograms, highlighting missing songs due to corrupted 
 	## files. When the spectrogram is loaded, data is sliced and scaled.
@@ -159,10 +161,11 @@ def GetSpectrograms(df,entropy_loss=True):
 
 if __name__ == "__main__":
 
-	## Test
+	## Get the genre's by track ID.
 	df = pd.read_pickle("_data\\response.pkl")
 
-	## Drop entries associated with corrupted MP3 or low resolution files.
+	## Drop entries associated with corrupted MP3, low resolution files, or shortened tracks. Also, dropping
+	## one experimental song that basically blows up your speakers.
 	corrupted = ["29350","99134","108925","133297","17631","17632","17633","17634","17635","107535",
 				 "17636","17637","29355","54568","54576","54578","55783","98565","98567","98569","136928"]
 	df = df[~df.index.isin(corrupted)]

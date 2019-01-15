@@ -103,7 +103,7 @@ if __name__ == "__main__":
 		
 		## Compute a mel-spectrogram
 		mel = melspectrogram(audio,sr=sr)
-		log_mel = librosa.power_to_db(mel)#[:,1000:1512]#,ref=np.max)
+		log_mel = librosa.power_to_db(mel)
 
 		## Plot it
 		plt.figure(figsize=(16,8))
@@ -129,7 +129,7 @@ if __name__ == "__main__":
 
 			## Compute the spectrogram
 			mel = melspectrogram(audio,sr=sr)
-			log_mel = librosa.power_to_db(mel)#,ref=np.max)
+			log_mel = librosa.power_to_db(mel)
 
 			## Create a NPZ name for the spectrogram
 			track_id = int(song[-10:-4])
